@@ -27,11 +27,11 @@
       <content type="file-editors">
         <state>
           <leaf>
-            <file leaf-file-name="file_handler_spec.rb" pinned="false" current="true" current-in-tab="true">
+            <file leaf-file-name="file_handler_spec.rb" pinned="false" current="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/spec/file_handler_spec.rb">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="0.6128405" vertical-offset="0" max-vertical-offset="514">
-                    <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+                  <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
+                    <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="25" />
                     <folding />
                   </state>
                 </provider>
@@ -47,11 +47,11 @@
                 </provider>
               </entry>
             </file>
-            <file leaf-file-name="validator_spec.rb" pinned="false" current="false" current-in-tab="false">
+            <file leaf-file-name="validator_spec.rb" pinned="false" current="true" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/spec/validator_spec.rb">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
-                    <caret line="4" column="61" selection-start-line="4" selection-start-column="61" selection-end-line="4" selection-end-column="61" />
+                  <state vertical-scroll-proportion="0.11673152" vertical-offset="0" max-vertical-offset="514">
+                    <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
                     <folding />
                   </state>
                 </provider>
@@ -78,21 +78,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="validator.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="validator.rb" pinned="false" current="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/validator.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
-              <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
+            <state vertical-scroll-proportion="0.58365756" vertical-offset="0" max-vertical-offset="514">
+              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="file_handler.rb" pinned="false" current="false" current-in-tab="true">
+      <file leaf-file-name="file_handler.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/file_handler.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.58365756" vertical-offset="0" max-vertical-offset="514">
-              <caret line="20" column="18" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
+              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -124,11 +124,11 @@
         <option value="$PROJECT_DIR$/lib/number_reader.rb" />
         <option value="$PROJECT_DIR$/spec/account_no_checker_spec.rb" />
         <option value="$PROJECT_DIR$/lib/account_no_checker.rb" />
-        <option value="$PROJECT_DIR$/lib/validator.rb" />
         <option value="$PROJECT_DIR$/lib/file_handler.rb" />
         <option value="$PROJECT_DIR$/machine_result_files/machineresults.txt" />
         <option value="$PROJECT_DIR$/spec/file_handler_spec.rb" />
         <option value="$PROJECT_DIR$/spec/number_reader_spec.rb" />
+        <option value="$PROJECT_DIR$/lib/validator.rb" />
         <option value="$PROJECT_DIR$/spec/validator_spec.rb" />
       </list>
     </option>
@@ -483,26 +483,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/validator.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
-          <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/file_handler.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.58365756" vertical-offset="0" max-vertical-offset="514">
-          <caret line="20" column="18" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spec/validator_spec.rb">
+    <entry file="file://$PROJECT_DIR$/spec/file_handler_spec.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
-          <caret line="4" column="61" selection-start-line="4" selection-start-column="61" selection-end-line="4" selection-end-column="61" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
+          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="25" />
           <folding />
         </state>
       </provider>
@@ -515,10 +507,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spec/file_handler_spec.rb">
+    <entry file="file://$PROJECT_DIR$/lib/validator.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6128405" vertical-offset="0" max-vertical-offset="514">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.58365756" vertical-offset="0" max-vertical-offset="514">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/validator_spec.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.11673152" vertical-offset="0" max-vertical-offset="514">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding />
         </state>
       </provider>

@@ -18,7 +18,3 @@ class Validator
 
   end
 end
-
-val = Validator.new
-puts val.checksum("123456789")
-puts val.checksum("888888888")
