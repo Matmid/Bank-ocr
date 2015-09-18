@@ -7,12 +7,18 @@ describe FileHandler::FileReader do
   context 'lines' do
     let(:expected_result) { ["    _  _     _  _  _  _  _ \n",
                              "  | _| _||_||_ |_   ||_||_|\n",
-                             "  ||_  _|  | _||_|  ||_| _|\n",
-                             "                           \n"]}
+                             "  ||_  _|  | _||_|  ||_| _|\n"]}
 
-    it "should store account number from file in an array" do
+    it "stores account number from file in an array" do
       expect(filereader.lines).to include(expected_result)
     end
+
+    it 'removes blank fourth line before adding the string to the array' do
+      filereader.lines.each do |line|
+          expect(line.length).to eq(expected_result.length)
+      end
+    end
+
 
   end
 end
