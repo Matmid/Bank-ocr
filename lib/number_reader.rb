@@ -41,7 +41,7 @@ class NumberReader
   def display
     until @end_of_file == true
       ## displays unconverted pipes and underscores
-      puts @filehandler.lines[@entry_count]
+      puts @filereader.lines[@entry_count]
       puts "\n"
       @account_numbers << digit_convert
       ## Prevents extra '=>' from being shown when end of file is reached
@@ -50,6 +50,7 @@ class NumberReader
       puts "=> " + "#{@account_numbers[@entry_count]}"
       @entry_count += 1
     end
+    @filewriter.save(@account_numbers)
     puts "End of File"
 
     puts "\nValid: \n"
@@ -68,9 +69,10 @@ class NumberReader
     @entry_count = 0
     @end_of_file = false
     @account_numbers = []
-    ## creates file reader obj taking filename as argument
-    ## must be in dir 'machine_result_files'
-    @filehandler = FileHandler::FileReader.new(path)
+    ## creates file reader and writer obj taking filename as argument
+    ## must be in dir 'text_files'
+    @filereader = FileHandler::FileReader.new(path)
+    @filewriter = FileHandler::FileWriter.new(path)
   end
 
   ## Look at lines array and convert into a string containing digits that relate to the pipes and underscores
@@ -86,11 +88,16 @@ class NumberReader
       ## digit saved in format of pipes and underscores
       while pos_count < 9
         digit = ''
-        @filehandler.lines[@entry_count].each do |line|
+        @filereader.lines[@entry_count].each do |line|
           digit.concat("#{line[digit_pos[pos_count]]}")
         end
         ## checks for the formatted digit in the DIGITS hash
-        account_number << "#{DIGITS.fetch(digit)}"
+        begin
+          account_number << "#{DIGITS.fetch(digit)}"
+        rescue
+          ## if digit not found replace it with a '?'
+          account_number << '?'
+        end
         ## moves on to next digit
         pos_count += 1
       end
@@ -103,7 +110,7 @@ class NumberReader
 
 end
 
-numberreader = NumberReader.new('machineresults.txt')
+numberreader = NumberReader.new('machineresults1.txt')
 
 numberreader.display
 
