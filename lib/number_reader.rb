@@ -1,4 +1,5 @@
 require_relative 'file_handler'
+require_relative 'validator'
 
 class NumberReader
 
@@ -42,15 +43,31 @@ class NumberReader
       ## displays unconverted pipes and underscores
       puts @filehandler.lines[@entry_count]
       puts "\n"
+      @account_numbers << digit_convert
+      ## Prevents extra '=>' from being shown when end of file is reached
+      break if @end_of_file == true
       ## displays account number as actual integers
-      puts "=> " + digit_convert
+      puts "=> " + "#{@account_numbers[@entry_count]}"
+      @entry_count += 1
     end
-    puts "\nEnd of File"
+    puts "End of File"
+
+    puts "\nValid: \n"
+    @account_numbers.each do |account_number|
+      puts account_number if Validator.checksum(account_number)
+    end
+
+    puts "\nInvalid\n"
+      @account_numbers.each do |account_number|
+        puts account_number unless Validator.checksum(account_number)
+    end
   end
+
 
   def initialize(path)
     @entry_count = 0
     @end_of_file = false
+    @account_numbers = []
     ## creates file reader obj taking filename as argument
     ## must be in dir 'machine_result_files'
     @filehandler = FileHandler::FileReader.new(path)
@@ -81,7 +98,6 @@ class NumberReader
       @end_of_file = true
     end
     ## Moves on to next account number entry
-    @entry_count += 1
     return account_number
   end
 

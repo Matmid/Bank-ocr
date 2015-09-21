@@ -17,7 +17,6 @@ module FileHandler
         lines << line
 
       end
-      puts lines
       return lines
     end
   end
