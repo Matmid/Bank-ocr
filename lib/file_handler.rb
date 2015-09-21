@@ -16,8 +16,8 @@ module FileHandler
       file.each_line.each_slice(4) do |line|
         ## removes 4th line which is always blank
         line.pop
-        lines << line
-
+        ## normalises length of line before adding it to array
+        lines << line.map {|subline| '%-27.27s' % subline.chomp }
       end
       return lines
     end
@@ -32,19 +32,22 @@ module FileHandler
 
     ## Write account number to the file, and status if necessary
     def save(account_numbers)
-      ## \t
       file = File.new(@filepath_write, 'w')
+      ## If account number valid then display it without message
       account_numbers.each do |account_number|
         if Validator.checksum(account_number)
           file.puts "#{account_number}"
+          ## if account number contains a illicit value represented by a '?' add message
         elsif account_number.include?('?')
           file.puts "#{account_number}\t" + "ILL"
+          ## else account number must not be valid and display message
         else
           file.puts "#{account_number}\t" + "ERR"
         end
       end
       file.close
     end
+
 
   end
 end

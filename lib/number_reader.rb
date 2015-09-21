@@ -110,9 +110,10 @@ class NumberReader
 
 end
 
-numberreader = NumberReader.new('machineresults1.txt')
+numberreader = NumberReader.new('machineresults.txt')
 
 numberreader.display
+
 
 
 
