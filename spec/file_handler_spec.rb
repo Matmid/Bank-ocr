@@ -2,12 +2,12 @@ require 'spec_helper'
 require 'file_handler'
 
 describe FileHandler::FileReader do
-  filereader = FileHandler::FileReader.new('machineresults.txt')
+  let(:filereader) {FileHandler::FileReader.new('machineresults.txt')}
 
   context 'lines' do
-    let(:expected_result) { ["    _  _     _  _  _  _  _ \n",
-                             "  | _| _||_||_ |_   ||_||_|\n",
-                             "  ||_  _|  | _||_|  ||_| _|\n"]}
+    let(:expected_result) { ["    _  _     _  _  _  _  _ ",
+                             "  | _| _||_||_ |_   ||_||_|",
+                             "  ||_  _|  | _||_|  ||_| _|"]}
 
     it "stores account number from file in an array" do
       expect(filereader.lines).to include(expected_result)
@@ -19,10 +19,45 @@ describe FileHandler::FileReader do
       end
     end
 
-    it "returns a value with 9 digits at all indices" do
+    it "returns a value that is 27 characters long at all indices" do
       filereader.lines.each do |line|
-        expect(line.to_s.length).to eq(expected_result.to_s.length)
+        line.each do |subline|
+          expect(subline.length).to eq(27)
+        end
       end
+    end
+
+  end
+end
+
+describe FileHandler::FileWriter do
+  let(:filewriter) {FileWriter::FileReader.new('machineresults.txt')}
+
+  file = File.join(File.dirname(__FILE__), '/../', 'text_files', File.basename('machineresults.txt',File.extname('machineresults.txt')) + '_output.txt')
+
+  context 'save' do
+    let(:expected_result) {"123456789"}
+    let(:expected_result1) {"ILL"}
+    let(:expected_result2) {"ERR"}
+    result = []
+
+    it "writes account number to file" do
+      File.open(file).readlines.each do |line|
+        result << line.chomp
+      end
+      expect(result).to include(expected_result)
+    end
+
+    it "writes status to file were necessary" do
+    result = []
+
+      File.open(file).readlines.each do |line|
+        result << line.chomp.split("\t")
+      end
+    expect(result.to_s).to include(expected_result1 || expected_result2)
+
+
+
 
     end
 

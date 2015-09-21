@@ -8,11 +8,11 @@ describe Validator do
   let(:invalid) {"888888888"}
 
     it 'returns true if account number is valid' do
-      expect(subject.checksum(valid)).to eq(true)
+      expect(Validator.checksum(valid)).to eq(true)
     end
 
     it 'returns false if account number is invalid' do
-      expect(subject.checksum(invalid)).to eq(false)
+      expect(Validator.checksum(invalid)).to eq(false)
     end
 
   end

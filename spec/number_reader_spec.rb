@@ -8,7 +8,7 @@ describe NumberReader do
   context 'convert_format' do
     let(:expected_result) { 123456789 }
 
-    it "converts pipes and underscores to integer" do
+    it "converts pipes and underscores to number" do
       expect(numberreader.digit_convert.to_i).to eq(expected_result)
     end
 
