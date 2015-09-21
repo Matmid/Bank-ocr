@@ -12,9 +12,5 @@ describe NumberReader do
       expect(numberreader.digit_convert.to_i).to eq(expected_result)
     end
 
-    it "returns a value with 9 digits" do
-      expect(numberreader.digit_convert.to_s.length).to eq(expected_result.to_s.length)
-    end
-
   end
 end

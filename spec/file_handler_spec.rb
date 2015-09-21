@@ -19,6 +19,12 @@ describe FileHandler::FileReader do
       end
     end
 
+    it "returns a value with 9 digits at all indices" do
+      filereader.lines.each do |line|
+        expect(line.to_s.length).to eq(expected_result.to_s.length)
+      end
+
+    end
 
   end
 end
