@@ -1,4 +1,4 @@
-require_relative 'validator'
+require_relative 'account_number'
 
 module FileHandler
 
@@ -35,14 +35,14 @@ module FileHandler
       file = File.new(@filepath_write, 'w')
       ## If account number valid then display it without message
       account_numbers.each do |account_number|
-        if Validator.checksum(account_number)
-          file.puts "#{account_number}"
+        if account_number.status == nil
+          file.puts "#{account_number.number}"
           ## if account number contains a illicit value represented by a '?' add message
-        elsif account_number.include?('?')
-          file.puts "#{account_number}\t" + "ILL"
-          ## else account number must not be valid and display message
+        elsif account_number.status.include?('?')
+          file.puts "#{account_number.number}\t" + "#{account_number.status}"
+          ## else account number must not be valid and save error status
         else
-          file.puts "#{account_number}\t" + "ERR"
+          file.puts "#{account_number.number}\t" + "#{account_number.status}"
         end
       end
       file.close

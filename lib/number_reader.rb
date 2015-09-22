@@ -1,5 +1,5 @@
 require_relative 'file_handler'
-require_relative 'validator'
+require_relative 'account_number'
 
 class NumberReader
 
@@ -47,7 +47,7 @@ class NumberReader
       ## Prevents extra '=>' from being shown when end of file is reached
       break if @end_of_file == true
       ## displays account number as actual integers
-      puts "=> " + "#{@account_numbers[@entry_count]}"
+      puts "=> " + "#{@account_numbers[@entry_count].number}"
       @entry_count += 1
     end
     @filewriter.save(@account_numbers)
@@ -55,12 +55,17 @@ class NumberReader
 
     puts "\nValid: \n"
     @account_numbers.each do |account_number|
-      puts account_number if Validator.checksum(account_number)
+      if account_number.status == nil
+        puts account_number.number
+      end
     end
 
+
     puts "\nInvalid\n"
-      @account_numbers.each do |account_number|
-        puts account_number unless Validator.checksum(account_number)
+    @account_numbers.each do |account_number|
+      if account_number.status == "ERR"
+        puts account_number.number
+      end
     end
   end
 
@@ -76,7 +81,7 @@ class NumberReader
   end
 
   ## Look at lines array and convert into a string containing digits that relate to the pipes and underscores
-  ## returns value of the account number
+  ## returns the account number as an object
   def digit_convert
     begin
       account_number = ''
@@ -105,7 +110,8 @@ class NumberReader
       @end_of_file = true
     end
     ## Moves on to next account number entry
-    return account_number
+    account_num = AccountNumber.new(account_number)
+    return account_num
   end
 
 end

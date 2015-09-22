@@ -9,7 +9,7 @@ describe NumberReader do
     let(:expected_result) { 123456789 }
 
     it "converts pipes and underscores to number" do
-      expect(numberreader.digit_convert.to_i).to eq(expected_result)
+      expect(numberreader.digit_convert.number.to_i).to eq(expected_result)
     end
 
   end
