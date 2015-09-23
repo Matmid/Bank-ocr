@@ -34,16 +34,15 @@ module FileHandler
     def save(account_numbers)
       file = File.new(@filepath_write, 'w')
       ## If account number valid then display it without message
-      account_numbers.each do |account_number|
+      account_numbers.each do |account_number_arr|
+        account_number_arr.each do |account_number|
         if account_number.status == nil
           file.puts "#{account_number.number}"
-          ## if account number contains a illicit value represented by a '?' add message
-        elsif account_number.status.include?('?')
-          file.puts "#{account_number.number}\t" + "#{account_number.status}"
-          ## else account number must not be valid and save error status
+        ## else status is set therefore display status in file
         else
           file.puts "#{account_number.number}\t" + "#{account_number.status}"
         end
+      end
       end
       file.close
     end

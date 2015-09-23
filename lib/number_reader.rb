@@ -17,25 +17,49 @@ class NumberReader
       ## Prevents extra '=>' from being shown when end of file is reached
       break if @end_of_file == true
       ## displays account number as actual integers
-      puts "=> " + "#{@account_numbers[@entry_count].number}"
+      if @account_numbers[@entry_count].length == 2
+        print "=> "
+        print @account_numbers[@entry_count][1].number
+        puts "\n"
+      elsif @account_numbers[@entry_count].length > 2
+        print "=> "
+        i = false
+        @account_numbers[@entry_count].each do |entry|
+          print entry.number + " "
+          unless i
+            print "AMB [ "
+            i = true
+          end
+        end
+        print "]"
+        puts "\n"
+      else
+        print "=> "
+        @account_numbers[@entry_count].each {|entry| print entry.number + " "}
+        puts "\n"
+      end
       @entry_count += 1
     end
     @filewriter.save(@account_numbers)
     puts "End of File"
 
     puts "\nValid: \n"
-    @account_numbers.each do |account_number|
+    @account_numbers.each do |account_number_arr|
+      account_number_arr.each do |account_number|
       if account_number.status == nil
         puts account_number.number
+      end
       end
     end
 
 
     puts "\nInvalid\n"
-    @account_numbers.each do |account_number|
+    @account_numbers.each do |account_number_arr|
+      account_number_arr.each do |account_number|
       if account_number.status == "ERR" || account_number.status == "ILL"
         puts account_number.number
       end
+        end
     end
 
 
@@ -75,6 +99,7 @@ class NumberReader
         rescue
           ## if digit not found replace it with a '?'
           account_number << '?'
+          ill_digit = digit
         end
         ## moves on to next digit
         pos_count += 1
@@ -82,9 +107,12 @@ class NumberReader
     rescue
       @end_of_file = true
     end
-    ## Moves on to next account number entry
     account_num = AccountNumber.new(account_number)
-    return account_num
+    inputcheck = InputCheck.new("#{ill_digit}")
+    inputcheck.find_alternatives
+    valid_numbers = []
+    inputcheck.best_alternative(account_num).each {|num| valid_numbers << AccountNumber.new(num)}
+    return valid_numbers
   end
 
 end
