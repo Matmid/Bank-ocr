@@ -92,8 +92,8 @@
       <file leaf-file-name="number_reader.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/number_reader.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5421687" vertical-offset="0" max-vertical-offset="1980">
-              <caret line="27" column="33" selection-start-line="27" selection-start-column="33" selection-end-line="27" selection-end-column="33" />
+            <state vertical-scroll-proportion="0.48192772" vertical-offset="30" max-vertical-offset="1980">
+              <caret line="26" column="54" selection-start-line="26" selection-start-column="54" selection-end-line="26" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -897,8 +897,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/number_reader.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5421687" vertical-offset="0" max-vertical-offset="1980">
-          <caret line="27" column="33" selection-start-line="27" selection-start-column="33" selection-end-line="27" selection-end-column="33" />
+        <state vertical-scroll-proportion="0.48192772" vertical-offset="30" max-vertical-offset="1980">
+          <caret line="26" column="54" selection-start-line="26" selection-start-column="54" selection-end-line="26" selection-end-column="54" />
           <folding />
         </state>
       </provider>

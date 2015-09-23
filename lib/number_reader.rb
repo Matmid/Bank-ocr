@@ -19,7 +19,7 @@ class NumberReader
       ## displays account number as actual integers
       if @account_numbers[@entry_count].length == 2
         print "=> "
-        print @account_numbers[@entry_count][1].number
+        print @account_numbers[@entry_count][1].number + " ILL"
         puts "\n"
       elsif @account_numbers[@entry_count].length > 2
         print "=> "
