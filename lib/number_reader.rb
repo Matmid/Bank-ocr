@@ -1,41 +1,11 @@
 require_relative 'file_handler'
 require_relative 'account_number'
+require_relative 'digits'
+require_relative 'input_check'
 
 class NumberReader
 
-  ## Define all possible combination of underscores and pipes and point them to the relating digit
-  DIGITS = {
-          " _ " +
-          "| |" +
-          "|_|" => 0,
-          "   " +
-          "  |" +
-          "  |" => 1,
-          " _ " +
-          " _|" +
-          "|_ " => 2,
-          " _ " +
-          " _|" +
-          " _|" => 3,
-          "   " +
-          "|_|" +
-          "  |" => 4,
-          " _ " +
-          "|_ " +
-          " _|" => 5,
-          " _ " +
-          "|_ " +
-          "|_|" => 6,
-          " _ " +
-          "  |" +
-          "  |" => 7,
-          " _ " +
-          "|_|" +
-          "|_|" => 8,
-          " _ " +
-          "|_|" +
-          " _|" => 9,
-  }
+  include Digits
 
   ## displays all account number entries until end of file is reached
   def display
@@ -63,10 +33,13 @@ class NumberReader
 
     puts "\nInvalid\n"
     @account_numbers.each do |account_number|
-      if account_number.status == "ERR"
+      if account_number.status == "ERR" || account_number.status == "ILL"
         puts account_number.number
       end
     end
+
+
+
   end
 
 

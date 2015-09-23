@@ -2,13 +2,13 @@ require_relative 'validator'
 
 class AccountNumber
 
-  attr_accessor :number
-  attr_accessor :status
+  attr_reader :number
+  attr_reader :status
 
   def initialize(number)
     @number = number
     @status = nil
-    @status = "ERR" unless Validator.checksum(number)
+    @status = "ERR" unless Validator.valid?(number)
     @status = "ILL" if number.include?('?')
   end
 
