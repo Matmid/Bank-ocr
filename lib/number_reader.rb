@@ -2,6 +2,7 @@ require_relative 'file_handler'
 require_relative 'account_number'
 require_relative 'digits'
 require_relative 'input_check'
+require_relative 'validator'
 
 class NumberReader
 
@@ -19,7 +20,7 @@ class NumberReader
       ## displays account number as actual integers
       if @account_numbers[@entry_count].length == 2
         print "=> "
-        print @account_numbers[@entry_count][1].number + " ILL"
+        print @account_numbers[@entry_count][1].number
         puts "\n"
       elsif @account_numbers[@entry_count].length > 2
         print "=> "
@@ -35,7 +36,7 @@ class NumberReader
         puts "\n"
       else
         print "=> "
-        @account_numbers[@entry_count].each {|entry| print entry.number + " "}
+        @account_numbers[@entry_count].each {|entry| print entry.number + " "; print "ILL" unless Validator.valid?(entry.number)}
         puts "\n"
       end
       @entry_count += 1
